@@ -7,6 +7,7 @@ const app = express();
 
 const { key } = require(path.join(__dirname, '..', 'config'));
 
+
 app.use('/', session({
     secret: key,
     secure: false,
@@ -25,9 +26,9 @@ app.use(express.static(path.join(__dirname, '..', '..', 'public')));
 app.use(express.urlencoded({ "extended": true }));
 app.use(express.json());
 
-app.get('/', (req, res) => res.redirect('/projekty'));
+//app.get('/', (req, res) => res.redirect('/projekty'));
 
-/*app.use('/admin', require(path.join(__dirname, 'routers', 'adminRouter')));
-app.use('/projekty', require(path.join(__dirname, 'routers', 'projektyRouter')));
+app.use('/', require(path.join(__dirname, 'routers', 'router')));
+/*app.use('/projekty', require(path.join(__dirname, 'routers', 'projektyRouter')));
 */
 module.exports = app;
