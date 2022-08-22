@@ -8,35 +8,13 @@
 </head>
 <body>
 
-    <form action="" method=""> 
+    <form action="/registrovani" method="post"> 
         <input type="text" name="jmeno"id="jmeno"> jmeno
         <input type="password" name="heslo"id="heslo">heslo
         <input type="password" > potvrdit heslo
-        <input type="button" onclick="SendInfo()" name="" value="potrvdit">    
+        <input type="submit" name="" value="potrvdit">    
     
         </form>
 
-
-
-        <script>
-            function SendInfo() {
-             let jmen = document.querySelector("#jmeno")
-             let hesl = document.querySelector("#heslo")
-                    fetch('/registrovani', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        jmeno: jmen,
-                        heslo: hesl
-                    })
-                }).then(response => response.json()).then(data => {
-                    console.log(response)
-                })
-            }
-        </script>
-
-
-    
-    
 </body>
 </html>
