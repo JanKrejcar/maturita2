@@ -28,7 +28,9 @@ app.use(express.json());
 
 //app.get('/', (req, res) => res.redirect('/projekty'));
 
-app.use('/', require(path.join(__dirname, 'routers', 'router')));
-/*app.use('/projekty', require(path.join(__dirname, 'routers', 'projektyRouter')));
-*/
+app.use('/', require(path.join(__dirname, 'routers', 'mainrouter')));
+app.use('/', require(path.join(__dirname, 'routers', 'prihlasenirouter')));
+app.use('/', require(path.join(__dirname, 'routers', 'registracerouter')));
+
+
 module.exports = app;

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="" method=""> 
+        <input type="text" name="jmeno"id="jmeno"> jmeno
+        <input type="password" name="heslo"id="heslo">heslo
+        <input type="password" > potvrdit heslo
+        <input type="button" onclick="SendInfo()" name="" value="potrvdit">    
+    
+        </form>
+
+
+
+        <script>
+            function SendInfo() {
+             let jmen = document.querySelector("#jmeno")
+             let hesl = document.querySelector("#heslo")
+                    fetch('/registrovani', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        jmeno: jmen,
+                        heslo: hesl
+                    })
+                }).then(response => response.json()).then(data => {
+                    console.log(response)
+                })
+            }
+        </script>
+
+
+    
+    
+</body>
+</html>
